@@ -34,7 +34,7 @@ const fn = () => {
 
   const numberOfAnimalsAsString = ['1', '8', '0', '20', '13'];
   const numberOfAnimals = numberOfAnimalsAsString
-    .map(n => Number.parseInt(n, 10));
+    .map((n) => Number.parseInt(n, 10));
 
   const numberOfAnimalsSorted = [...numberOfAnimals].sort((a, b) => a - b);
 
