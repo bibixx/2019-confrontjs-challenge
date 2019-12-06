@@ -9,7 +9,7 @@ const get = (obj, [currentProp, ...path]) => {
 
   const v = obj[currentProp];
 
-  if (!v) {
+  if (v === undefined) {
     return undefined;
   }
 
@@ -40,14 +40,14 @@ const fn = async () => {
   },
   ];
 
-  for (i = 0; i < people.length; i++) {
+  for (let i = 0; i < people.length; i++) {
     arr.push(
       getPersonAge(people[i].id)
         .then((personAge) => ({
           name: get(people, [i, 'name']),
           id: get(people, [i, 'id']),
           numberOfPets: get(people, [i, 'numberOfPets']),
-          age: isNaN(+personAge) ? Infinity : personAge,
+          age: isNaN(Number.parseInt(personAge, 10)) ? Infinity : personAge,
         })),
     );
   }
