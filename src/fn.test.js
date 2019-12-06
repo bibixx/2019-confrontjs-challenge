@@ -1,5 +1,5 @@
 const {
-  fn
+  fn,
 } = require('./fn');
 
 describe('fn', () => {
