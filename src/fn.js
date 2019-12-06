@@ -1,5 +1,5 @@
 const {
-  getPersonAge
+  getPersonAge,
 } = require('./utils');
 
 const get = (obj, [currentProp, ...path]) => {
@@ -13,32 +13,32 @@ const get = (obj, [currentProp, ...path]) => {
     return undefined;
   }
 
-  return get(v, path)
-}
+  return get(v, path);
+};
 
 const fn = async () => {
   const arr = [];
   const people = [{
-      name: "John",
-      id: "john",
-      numberOfPets: 1,
-    },
-    {
-      name: "Amy",
-      id: "amy",
-      numberOfPets: 2,
-    },
-    {
-      name: "Adam",
-      id: "adam",
-      numberOfPets: 0,
-    },
-    {
-      name: "Emma",
-      id: "emma",
-      numberOfPets: 9,
-    },
-  ]
+    name: 'John',
+    id: 'john',
+    numberOfPets: 1,
+  },
+  {
+    name: 'Amy',
+    id: 'amy',
+    numberOfPets: 2,
+  },
+  {
+    name: 'Adam',
+    id: 'adam',
+    numberOfPets: 0,
+  },
+  {
+    name: 'Emma',
+    id: 'emma',
+    numberOfPets: 9,
+  },
+  ];
 
   for (i = 0; i < people.length; i++) {
     arr.push(
@@ -48,13 +48,13 @@ const fn = async () => {
           id: get(people, [i, 'id']),
           numberOfPets: get(people, [i, 'numberOfPets']),
           age: isNaN(+personAge) ? Infinity : personAge,
-        }))
+        })),
     );
   }
 
   return Promise.all(arr);
-}
+};
 
 module.exports = {
-  fn
-}
+  fn,
+};
